@@ -1,0 +1,20 @@
+---
+- name: service | codedeploy-agent | started
+  service:
+    name: codedeploy-agent
+    state: started
+
+- name: service | codedeploy-agent | stopped
+  service:
+    name: codedeploy-agent
+    state: stopped
+
+- name: service | codedeploy-agent | restarted
+  service:
+    name: codedeploy-agent
+    state: restarted
+
+- name: service | codedeploy-agent | reloaded
+  service:
+    name: codedeploy-agent
+    state: reloaded

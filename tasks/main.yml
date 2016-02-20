@@ -1,0 +1,40 @@
+---
+- name: Install Packages | apt
+  apt:
+    state: latest
+    name: "{{ item }}"
+    update_cache: yes
+  with_items:
+    - python-pip
+    - ruby2.0
+    - git
+
+- name: Install Packages | pip
+  pip:
+    state: latest
+    name: "{{ item }}"
+  with_items:
+    - awscli
+
+- name: Get Instance Metadata | ec2
+  action: ec2_facts
+
+- name: Get CodeDeploy | s3
+  s3:
+    mode: get
+    region: "{{ ansible_ec2_placement_region }}"
+    bucket: "aws-codedeploy-{{ ansible_ec2_placement_region }}"
+    object: /latest/install
+    dest: /tmp/codedeploy-install
+
+- name: Codedeploy Install Binary | Permission Executable
+  file:
+    state: file
+    path: /tmp/codedeploy-install
+    group: www-data
+    owner: www-data
+    mode: 0777
+
+- name: Codedeploy Install
+  become: true
+  command: /tmp/codedeploy-install auto

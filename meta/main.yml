@@ -1,0 +1,19 @@
+---
+galaxy_info:
+  author:
+    - Ben Visser (@noqcks)
+    - Aaron Pederson (@aaronpederson)
+  company: "TELUS digital"
+  description: "AWS CodeDeploy agent installation"
+  license: MIT
+  version: 0.1.0
+  platforms:
+    - name: debian
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+  categories:
+    - networking
+    - system
