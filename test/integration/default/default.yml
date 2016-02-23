@@ -5,4 +5,4 @@
 
   roles:
     # name of role to test
-    - role: ansible-codedeploy-agent
+    - role: ansible-aws-codedeploy-agent
