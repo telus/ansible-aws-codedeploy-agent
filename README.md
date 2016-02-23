@@ -18,7 +18,7 @@ Example Playbook
 ----------------
     - hosts: servers
       roles:
-         - role: telusdigital.codedeploy-agent
+         - role: telusdigital.aws.codedeploy-agent
 
 License
 -------
