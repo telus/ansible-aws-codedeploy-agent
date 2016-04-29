@@ -10,7 +10,7 @@ galaxy_info:
   company: "TELUS digital"
   description: "AWS CodeDeploy agent installation"
   license: MIT
-  version: 0.1.0
+  version: 1.0.0
   platforms:
     - name: debian
       versions:

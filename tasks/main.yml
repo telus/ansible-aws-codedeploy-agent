@@ -20,11 +20,8 @@
   action: ec2_facts
 
 - name: Get CodeDeploy | s3
-  s3:
-    mode: get
-    region: "{{ ansible_ec2_placement_region }}"
-    bucket: "aws-codedeploy-{{ ansible_ec2_placement_region }}"
-    object: /latest/install
+  get_url:
+    url: "https://aws-codedeploy-{{ ansible_ec2_placement_region }}.s3.amazonaws.com/latest/install"
     dest: /tmp/codedeploy-install
 
 - name: Codedeploy Install Binary | Permission Executable

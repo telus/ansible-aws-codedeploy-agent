@@ -1,0 +1,9 @@
+---
+# host to test against
+- hosts: test-kitchen
+  remote_user: root
+
+  roles:
+    # name of role to test
+    - role: ansible-aws-codedeploy-agent
+      ansible_ec2_placement_region: us-east-1
