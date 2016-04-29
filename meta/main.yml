@@ -1,4 +1,8 @@
 ---
+dependencies:
+  - role: telusdigital.python
+  - role: telusdigital.aws-cli
+
 galaxy_info:
   author:
     - Ben Visser (@noqcks)
