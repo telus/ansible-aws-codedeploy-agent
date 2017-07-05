@@ -1,0 +1,4 @@
+packages:
+  - python2-pip
+  - ruby
+  - git

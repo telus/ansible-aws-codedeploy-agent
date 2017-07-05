@@ -1,0 +1,16 @@
+---
+- name: "Install Packages | package manager"
+  package:
+    state: latest
+    name: "{{ item }}"
+    update_cache: yes
+  with_items: "{{ packages }}"
+  tags:
+    - codedeploy
+
+- name: "Check if CodeDeploy is already installed"
+  command: dpkg-query -W 'codedeploy-agent'
+  ignore_errors: True
+  register: is_codedeploy_installed
+  tags:
+    - codedeploy

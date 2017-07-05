@@ -1,0 +1,22 @@
+---
+- name: "Ensure the epel repo is installed"
+  package:
+    name: epel-release
+    state: present
+  tags:
+    - codedeploy
+
+- name: "Install Packages | package manager"
+  package:
+    state: present
+    name: "{{ item }}"
+  with_items: "{{ packages }}"
+  tags:
+    - codedeploy
+
+- name: "Check if CodeDeploy is already installed"
+  command: rpm -q 'codedeploy-agent'
+  ignore_errors: True
+  register: is_codedeploy_installed
+  tags:
+    - codedeploy
