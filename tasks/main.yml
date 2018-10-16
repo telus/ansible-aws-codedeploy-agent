@@ -18,7 +18,7 @@
     - codedeploy
 
 - name: "Get Instance Metadata | ec2"
-  action: ec2_facts
+  action: ec2_metadata_facts
   tags:
     - codedeploy
 
